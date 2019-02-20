@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F931B5F5-4062-4865-AA29-177EAE8E8951}</ProjectGuid>
+    <ProjectGuid>{5C427C3D-AAF1-4A62-88F1-72D4489CC977}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Shop.Models</RootNamespace>
-    <AssemblyName>Shop.Models</AssemblyName>
+    <RootNamespace>DataLayer</RootNamespace>
+    <AssemblyName>DataLayer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -48,16 +48,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\Place.cs" />
-    <Compile Include="Database\Product.cs" />
-    <Compile Include="Database\Roles.cs" />
-    <Compile Include="ISoftDelete.cs" />
+    <Compile Include="dbcont.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shop.Models\Shop.Models.csproj">
+      <Project>{F931B5F5-4062-4865-AA29-177EAE8E8951}</Project>
+      <Name>Shop.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
