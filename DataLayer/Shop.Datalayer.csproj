@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="dbcont.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

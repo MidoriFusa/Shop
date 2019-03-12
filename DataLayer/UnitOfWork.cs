@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shop.Models.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,30 +10,30 @@ namespace DataLayer
     public class UnitOfWork : IDisposable
     {
       private dbcont context = new dbcont();
-      private PlaceRepository placerepo;
-      private ProductRepository prodrepo;
+      private Repository<Place> placerepo;
+      private Repository<Product> prodrepo;
 
-        public ProductRepository prods
+        public Repository<Product> prods
         {
 
             get
             {
                 if (prodrepo == null)
                 {
-                    prodrepo = new ProductRepository(context);
+                    prodrepo = new Repository<Product>(context);
                 }
                 return prodrepo;
             }
 
         }
 
-        public PlaceRepository Places
+        public Repository<Place> Places
         {
             get
             {
                 if (placerepo == null)
                 {
-                    placerepo = new PlaceRepository(context);
+                    placerepo = new Repository<Place>(context);
                 }
                 return placerepo;
             }

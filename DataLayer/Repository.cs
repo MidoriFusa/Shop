@@ -8,41 +8,41 @@ using System.Data.Entity;
 
 namespace DataLayer
 {
-   public class ProductRepository:IRepository<Product>
+   public class Repository<T>:IRepository<T> where T:class
     {
         private dbcont db;
 
-        public ProductRepository(dbcont context)
+        public Repository(dbcont context)
         {
             this.db = context;
         }
 
-        public IEnumerable<Product> GetAll()
+        public IEnumerable<T> GetAll()
         {
-            return db.Products;
+            return db.Set<T>();
         }
 
-        public Product GetByid(int id)
+        public T GetByid(int id)
         {
-            return db.Products.Find(id);
+            return db.Set<T>().Find(id);
         }
 
-        public void Create (Product products)
+        public void Create (T products)
         {
-            db.Products.Add(products);
+            db.Set<T>().Add(products);
         }
 
-        public void Update (Product products)
+        public void Update (T products)
         {
             db.Entry(products).State = EntityState.Modified;
         }
 
         public void Delete(int id)
         {
-            Product products = db.Products.Find(id);
+            T products = db.Set<T>().Find(id);
             if (products != null)
             {
-                db.Products.Remove(products);
+                db.Set<T>().Remove(products);
             }
         }
 
@@ -53,47 +53,6 @@ namespace DataLayer
     }
 
 
-    public class PlaceRepository : IRepository<Place>
-    {
-
-        private dbcont db;
-
-        public  PlaceRepository(dbcont context)
-        {
-
-            this.db = context;
-
-        }
-
-
-        public void Create(Place item)
-        {
-            db.Places.Add(item);
-        }
-
-        public void Delete(int id)
-        {
-            Place places = new Place();
-            if (places!= null)
-            {
-                db.Places.Remove(places);
-            }
-        }
-
-        public IEnumerable<Place> GetAll()
-        {
-           return db.Places;
-        }
-
-        public Place GetByid(int id)
-        {
-            return db.Places.Find(id);
-        }
-
-        public void Update(Place item)
-        {
-            db.Entry(item).State = EntityState.Modified;
-        }
-    }
+  
 
 }
