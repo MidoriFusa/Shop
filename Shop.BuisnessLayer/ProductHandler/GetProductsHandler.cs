@@ -8,19 +8,18 @@ using System.Threading.Tasks;
 
 namespace Shop.BuisnessLayer.ProductHandler
 {
-    public class GetProducts : BaseHandler<List<Product>>
+    public class GetProductsHandler : BaseHandler<List<Product>>
     {
 
 
-        public GetProducts(UnitOfWork unitOfWork) : base(unitOfWork) { }
+        public GetProductsHandler(UnitOfWork unitOfWork) : base(unitOfWork) { }
 
 
 
 
         public override HandlerResult<List<Product>> Execute()
         {
-            var result = this.unit.prods.GetAll();
-
+            var result = this.UnitOfWork.prods.GetAll().ToList();
             return new HandlerResult<List<Product>>(result);
         }
     }

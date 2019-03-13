@@ -10,6 +10,13 @@ namespace Shop.Controllers
 {
     public class ProductController : Controller
     {
+        //[Route("")]
+        //[HttpGet]
+        //[ResponseType(typeof(List<Product>))]
+        //public IHttpActionResult GetProducts() => this.RunHandler<GetProductsHandler, List<Product>>();
+
+
+
         UnitOfWork unitofwork;
 
         public ProductController()

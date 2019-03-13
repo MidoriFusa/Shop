@@ -70,7 +70,12 @@
     <Compile Include="BaseCommandHandler.cs" />
     <Compile Include="HandlerResult.cs" />
     <Compile Include="IError.cs" />
-    <Compile Include="ProductHandler\GetProducts.cs" />
+    <Compile Include="PlaceHandler\DeletePlaceHandler.cs" />
+    <Compile Include="PlaceHandler\GetPlaceById.cs" />
+    <Compile Include="PlaceHandler\GetPlacesHandler.cs" />
+    <Compile Include="ProductHandler\DeleteProductHandler.cs" />
+    <Compile Include="ProductHandler\GetProductByIdHandler.cs" />
+    <Compile Include="ProductHandler\GetProductsHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

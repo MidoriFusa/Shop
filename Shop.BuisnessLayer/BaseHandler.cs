@@ -9,13 +9,13 @@ namespace Shop.BuisnessLayer
 {
     public abstract class BaseHandler<TResponse>
     {
-        protected UnitOfWork unit { get; }
+        protected UnitOfWork UnitOfWork { get; }
 
 
         protected BaseHandler(UnitOfWork unitwork)
         {
 
-            this.unit = unitwork;
+            this.UnitOfWork = unitwork;
         }
 
 
