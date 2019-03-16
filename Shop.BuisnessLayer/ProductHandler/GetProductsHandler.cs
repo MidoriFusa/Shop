@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Shop.BuisnessLayer.ProductHandler
 {
-    public class GetProductsHandler : BaseHandler<List<Product>>
+    public class GetProductsHandler : BaseCommandHandler<List<Product>>
     {
 
 

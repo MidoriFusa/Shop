@@ -68,11 +68,14 @@
   <ItemGroup>
     <Compile Include="BaseHandler.cs" />
     <Compile Include="BaseCommandHandler.cs" />
+    <Compile Include="Errors\ApiError.cs" />
     <Compile Include="HandlerResult.cs" />
     <Compile Include="IError.cs" />
     <Compile Include="PlaceHandler\DeletePlaceHandler.cs" />
     <Compile Include="PlaceHandler\GetPlaceById.cs" />
     <Compile Include="PlaceHandler\GetPlacesHandler.cs" />
+    <Compile Include="PlaceHandler\UpdatePlaceHandler.cs" />
+    <Compile Include="ProductHandler\CreateProductHandler.cs" />
     <Compile Include="ProductHandler\DeleteProductHandler.cs" />
     <Compile Include="ProductHandler\GetProductByIdHandler.cs" />
     <Compile Include="ProductHandler\GetProductsHandler.cs" />

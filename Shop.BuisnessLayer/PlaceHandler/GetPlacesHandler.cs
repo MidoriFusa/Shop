@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Shop.BuisnessLayer.PlaceHandler
 {
-    public  class GetPlacesHandler:BaseHandler<List<Place>>
+    public  class GetPlacesHandler:BaseCommandHandler<List<Place>>
     {
 
         public GetPlacesHandler(UnitOfWork unitOfWork) : base(unitOfWork) { }

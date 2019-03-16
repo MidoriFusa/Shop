@@ -11,7 +11,7 @@ namespace Shop.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View("~/Views/Product/Index.cshtml");
+            return View();
         }
     }
 }

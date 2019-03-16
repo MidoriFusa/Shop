@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Shop.BuisnessLayer
 {
-    public abstract class BaseHandler<TResponse>
+    public abstract class BaseCommandHandler<TResponse>
     {
         protected UnitOfWork UnitOfWork { get; }
 
 
-        protected BaseHandler(UnitOfWork unitwork)
+        protected BaseCommandHandler(UnitOfWork unitwork)
         {
 
             this.UnitOfWork = unitwork;
