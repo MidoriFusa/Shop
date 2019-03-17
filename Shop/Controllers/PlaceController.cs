@@ -1,12 +1,16 @@
 ﻿using DataLayer;
+using Shop.BuisnessLayer;
+using Shop.BuisnessLayer.Dtos;
 using Shop.BuisnessLayer.PlaceHandler;
 using Shop.Models.Database;
 using System;
+using AutoMapper;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Shop.BuisnessLayer.Commands;
 
 namespace Shop.Controllers
 {
@@ -18,15 +22,15 @@ namespace Shop.Controllers
 
         [Route(" ")]
         [HttpGet]
-        [ResponseType(typeof(List<Place>))]
-        public IHttpActionResult GetPlaceList() => this.RunHandler<GetPlacesHandler, List<Place>>();
+        [ResponseType(typeof(List<PlaceDto>))]
+        public IHttpActionResult GetPlaceList() => this.RunHandler<GetPlacesHandler, List<PlaceDto>>();
 
 
         [Route("{id}")]
         [HttpGet]
-        [ResponseType(typeof(Place))]
+        [ResponseType(typeof(PlaceDto))]
         [ResponseType(typeof(NotFoundError))]
-        public IHttpActionResult GetPlaceById(int id) => this.RunHandler<GetPlaceByIdHandler, int, Place>(id);
+        public IHttpActionResult GetPlaceById(int id) => this.RunHandler<GetPlaceByIdHandler, int, PlaceDto>(id);
 
 
         [Route("{id}")]
@@ -36,11 +40,15 @@ namespace Shop.Controllers
         public IHttpActionResult DeletePlace(int id) => this.RunHandler<DeletePlaceHandler, int, int>(id);
 
 
-        [Route("Update/{id}")]
-        [HttpGet, HttpPost]
+        [Route("{id}")]
+        [HttpPut, HttpPost]
         [ResponseType(typeof(Place))]
         [ResponseType(typeof(NotFoundError))]
-        public IHttpActionResult UpdatePlace(int id) => this.RunHandler<UpdatePlaceHandler, int, Place>(id);
+        public IHttpActionResult UpdatePlace(PlaceUpdateDto model)
+        {
+            var result = Mapper.Map<UpdatePlaceCommand>(model);
+            return this.RunHandler<UpdatePlaceHandler, UpdatePlaceCommand, PlaceDto>(result);
+        }
 
 
 

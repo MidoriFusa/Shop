@@ -3,7 +3,8 @@
 namespace Shop
 {
     using Shop.BuisnessLayer;
-    using Shop.BuisnessLayer.Errors;
+
+using Shop.Errors;
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
@@ -11,6 +12,7 @@ namespace Shop
     using System.Net;
     using System.Web.Http;
     using System.Web.Http.Cors;
+
 
     /// <inheritdoc />
     /// <summary>

@@ -26,6 +26,10 @@ namespace DataLayer
         {
             return db.Set<T>().Find(id);
         }
+        public T GetByid(int? id)
+        {
+            return db.Set<T>().Find(id);
+        }
 
         public void Create (T products)
         {

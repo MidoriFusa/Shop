@@ -1,10 +1,4 @@
 ﻿using DataLayer;
-using Shop.Models.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shop.BuisnessLayer.PlaceHandler
 {
@@ -18,7 +12,7 @@ namespace Shop.BuisnessLayer.PlaceHandler
 
             if (result == null)
             {
-                return new HandlerResult<int>(new NoFoundError($"No found with id {command}"));
+                return new HandlerResult<int>(new NotFoundError($"No found with id {command}"));
             }
 
             this.UnitOfWork.Places.Delete(command);

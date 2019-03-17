@@ -5,7 +5,11 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 //using System.Web.Mvc;
+using AutoMapper;
 using DataLayer;
+using Shop.BuisnessLayer;
+using Shop.BuisnessLayer.Commands;
+using Shop.BuisnessLayer.Dtos;
 using Shop.BuisnessLayer.ProductHandler;
 using Shop.Models.Database;
 
@@ -17,16 +21,16 @@ namespace Shop.Controllers
     {
         [Route("")]
         [HttpGet]
-        [ResponseType(typeof(List<Product>))]
-        public IHttpActionResult GetProducts() => this.RunHandler<GetProductsHandler, List<Product>>();
+        [ResponseType(typeof(List<ProductDto>))]
+        public IHttpActionResult GetProducts() => this.RunHandler<GetProductsHandler, List<ProductDto>>();
 
 
 
         [Route("{id}")]
         [HttpGet]
-        [ResponseType(typeof(Product))]
+        [ResponseType(typeof(ProductDto))]
         [ResponseType(typeof(NotFoundError))]
-        public IHttpActionResult GetPRoduct(int id) => this.RunHandler<GetProductByIdHandler,int,Product>(id);
+        public IHttpActionResult GetPRoduct(int id) => this.RunHandler<GetProductByIdHandler,int,ProductDto>(id);
 
 
 
@@ -39,10 +43,15 @@ namespace Shop.Controllers
 
 
 
-        [Route("create")]
-        [HttpGet, HttpPost]
-        [ResponseType(typeof (Product))]
-        public IHttpActionResult CreatePRoducr(Product product) => this.RunHandler<CreateProductHandler, Product, Product>(product);
+        [Route("{id}")]
+        [HttpPut, HttpPost]
+        [ResponseType(typeof (ProductDto))]
+        [ResponseType(typeof(NotFoundError))]
+       public IHttpActionResult CreateProduct(CreateProductDto model)
+        {
+            var command = Mapper.Map<CreateProductCommand>(model);
+            return this.RunHandler<CreateProductHandler, CreateProductCommand, ProductDto>(command);
+        }
 
 
         //#region mvcapi 

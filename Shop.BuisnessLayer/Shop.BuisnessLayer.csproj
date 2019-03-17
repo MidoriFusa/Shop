@@ -66,11 +66,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDto.cs" />
     <Compile Include="BaseHandler.cs" />
     <Compile Include="BaseCommandHandler.cs" />
-    <Compile Include="Errors\ApiError.cs" />
+    <Compile Include="Commands\CreateProductCommand.cs" />
+    <Compile Include="Commands\UpdatePlaceCommand.cs" />
+    <Compile Include="Dtos\PlaceUpdateDto.cs" />
+    <Compile Include="Dtos\CreateProductDto.cs" />
+    <Compile Include="Dtos\PlaceDto.cs" />
+    <Compile Include="Dtos\ProductDto.cs" />
     <Compile Include="HandlerResult.cs" />
     <Compile Include="IError.cs" />
+    <Compile Include="NotFoundError.cs" />
     <Compile Include="PlaceHandler\DeletePlaceHandler.cs" />
     <Compile Include="PlaceHandler\GetPlaceById.cs" />
     <Compile Include="PlaceHandler\GetPlacesHandler.cs" />

@@ -1,4 +1,6 @@
 ﻿using DataLayer;
+using Shop.BuisnessLayer.Commands;
+using Shop.BuisnessLayer.Dtos;
 using Shop.Models.Database;
 using System;
 using System.Collections.Generic;
@@ -8,24 +10,47 @@ using System.Threading.Tasks;
 
 namespace Shop.BuisnessLayer.PlaceHandler
 {
-    public class UpdatePlaceHandler:BaseCommandHandler<int , Place>
+    public class UpdatePlaceHandler:BaseCommandHandler<UpdatePlaceCommand , PlaceDto>
     {
 
 
         public UpdatePlaceHandler(UnitOfWork unitOfWork) : base(unitOfWork) { }
 
-        public override HandlerResult<Place> Execute(int command)
+        public override HandlerResult<PlaceDto> Execute(UpdatePlaceCommand command)
         {
-            var result = this.UnitOfWork.Places.GetByid(command);
+            Place entity;
 
-            if (result==null)
+            if (command.PlaceId.GetValueOrDefault()==0)
             {
-                return new HandlerResult<Place>(new NotFounErro($"Not found place wtih id {command}"));
+                entity = new Place();
+            }
+            else
+            {
+                entity = this.UnitOfWork.Places.GetByid(command.PlaceId);
             }
 
-            this.UnitOfWork.Places.Update(result);
+
+            if (entity == null)
+            {
+                return new HandlerResult<PlaceDto>(new NotFoundError($"Not found region with id {command.PlaceId}"));
+            }
+
+            entity.PlaceName = command.PlaceName;
+            entity.products = entity.products;
+
+            if (command.PlaceId.GetValueOrDefault() == 0)
+            {
+                this.UnitOfWork.Places.Create(entity);
+            }
+            else
+            {
+                this.UnitOfWork.Places.Update(entity);
+            }
             this.UnitOfWork.Save();
-            return new HandlerResult<Place>(result);
+            var handler = new GetPlaceByIdHandler(this.UnitOfWork);
+            var result = handler.Execute(entity.PlaceId);
+            return result;
+
 
         }
     }

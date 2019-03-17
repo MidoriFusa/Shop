@@ -1,4 +1,5 @@
 ﻿using DataLayer;
+using Shop.BuisnessLayer.Dtos;
 using Shop.Models.Database;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Shop.BuisnessLayer.ProductHandler
 {
-    public class GetProductsHandler : BaseCommandHandler<List<Product>>
+    public class GetProductsHandler : BaseCommandHandler<List<ProductDto>>
     {
 
 
@@ -17,10 +18,11 @@ namespace Shop.BuisnessLayer.ProductHandler
 
 
 
-        public override HandlerResult<List<Product>> Execute()
+        public override HandlerResult<List<ProductDto>> Execute()
         {
-            var result = this.UnitOfWork.prods.GetAll().ToList();
-            return new HandlerResult<List<Product>>(result);
+            var result = this.UnitOfWork.prods.GetAll().Select(e => new ProductDto { Id = e.ProductId, Height = e.Height, Length = e.Length, Name = e.ProductName, Width = e.Width, placeDtos = e.places }).ToList();
+
+            return new HandlerResult<List<ProductDto>>(result);
         }
     }
 }
