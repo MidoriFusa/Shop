@@ -1,6 +1,7 @@
-﻿namespace Shop.Errors
+﻿namespace Shop
 {
     using Shop.BuisnessLayer;
+    using Shop.Common;
     using System.Net;
     using System.Net.Http;
     using System.Threading;

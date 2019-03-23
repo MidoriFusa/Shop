@@ -1,5 +1,8 @@
 ﻿using DataLayer;
 using Shop.BuisnessLayer.Dtos;
+using Shop.Common;
+using Shop.Common.Errors;
+using System.Linq;
 
 namespace Shop.BuisnessLayer.PlaceHandler
 {
@@ -10,12 +13,12 @@ namespace Shop.BuisnessLayer.PlaceHandler
 
         public override HandlerResult<PlaceDto> Execute(int command)
         {
-            var result = this.UnitOfWork.Places.GetByid(command);
+            var result = this.UnitOfWork.Places.GetAll().Where(e => e.PlaceId == command).Select(e => new PlaceDto { Id = e.PlaceId, Name = e.PlaceName, products = e.products }).FirstOrDefault();
 
 
             if (result == null)
             {
-                return new HandlerResult<PlaceDto>(new NotFoundError($"not found with id{command}"));
+                return new HandlerResult<PlaceDto>(new NotFoundError());
             }
             return new HandlerResult<PlaceDto>(result);
         }

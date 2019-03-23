@@ -1,5 +1,7 @@
 ﻿using DataLayer;
 using Shop.BuisnessLayer.Dtos;
+using Shop.Common;
+using Shop.Common.Errors;
 using Shop.Models.Database;
 using System;
 using System.Collections.Generic;
@@ -16,7 +18,8 @@ namespace Shop.BuisnessLayer.ProductHandler
 
         public override HandlerResult<ProductDto> Execute(int command)
         {
-            var result = this.UnitOfWork.prods.GetByid(command);
+
+            var result = this.UnitOfWork.prods.GetAll().Where(e=>e.ProductId==command).Select(e=>new ProductDto { Id=e.ProductId, Height=e.Height, Name=e.ProductName,Length=e.Length, Width=e.Width, placeDtos=e.places}).SingleOrDefault();
 
 
             if (result== null)

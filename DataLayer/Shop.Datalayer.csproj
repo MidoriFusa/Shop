@@ -50,13 +50,16 @@
   <ItemGroup>
     <Compile Include="dbcont.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="Migrations\201903231608475_new db.cs" />
+    <Compile Include="Migrations\201903231608475_new db.Designer.cs">
+      <DependentUpon>201903231608475_new db.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +67,11 @@
       <Project>{F931B5F5-4062-4865-AA29-177EAE8E8951}</Project>
       <Name>Shop.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903231608475_new db.resx">
+      <DependentUpon>201903231608475_new db.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,7 +10,7 @@ namespace DataLayer
         where T:class
     {
 
-        IEnumerable<T> GetAll();
+        IQueryable<T> GetAll();
         T GetByid(int id);
 
         void Create(T item);

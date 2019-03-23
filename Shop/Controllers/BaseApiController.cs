@@ -3,15 +3,15 @@
 namespace Shop
 {
     using Shop.BuisnessLayer;
-
-using Shop.Errors;
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
     using System.Net;
     using System.Web.Http;
-    using System.Web.Http.Cors;
+    using EnableCorsAttribute = Cors.ConfigProfiles.EnableCorsAttribute;
+    using Shop.Common.Errors;
+    using Shop.Common;
 
 
     /// <inheritdoc />

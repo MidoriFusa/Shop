@@ -1,4 +1,4 @@
-﻿namespace Shop.BuisnessLayer
+﻿namespace Shop.Common
 {
     using System.Collections.Generic;
 

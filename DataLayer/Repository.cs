@@ -17,7 +17,7 @@ namespace DataLayer
             this.db = context;
         }
 
-        public IEnumerable<T> GetAll()
+        public IQueryable<T> GetAll()
         {
             return db.Set<T>();
         }

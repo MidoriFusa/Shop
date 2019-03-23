@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Shop.BuisnessLayer.Commands;
+using Shop.Common.Errors;
 
 namespace Shop.Controllers
 {

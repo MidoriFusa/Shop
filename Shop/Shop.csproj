@@ -47,6 +47,9 @@
     <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Cors.ConfigProfiles, Version=5.1.3.0, Culture=neutral, PublicKeyToken=253caed373cef676, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cors.ConfigProfiles.5.1.3\lib\net45\Cors.ConfigProfiles.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -257,6 +260,7 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="StartupConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -361,6 +365,10 @@
     <ProjectReference Include="..\Shop.BuisnessLayer\Shop.BuisnessLayer.csproj">
       <Project>{98EDD9D0-4AA8-4287-BA34-01558E72E6A5}</Project>
       <Name>Shop.BuisnessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shop.Common\Shop.Common.csproj">
+      <Project>{CD54758C-BCF4-4E2D-89F7-8B9DFB1B5239}</Project>
+      <Name>Shop.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Shop.Models\Shop.Models.csproj">
       <Project>{F931B5F5-4062-4865-AA29-177EAE8E8951}</Project>

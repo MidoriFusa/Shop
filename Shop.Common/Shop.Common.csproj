@@ -48,17 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Errors\ArgumentError.cs" />
+    <Compile Include="Errors\ArgumentNullError.cs" />
+    <Compile Include="Errors\BaseError.cs" />
+    <Compile Include="Errors\ExceptionError.cs" />
+    <Compile Include="Errors\IError.cs" />
+    <Compile Include="Errors\InternalServerError.cs" />
+    <Compile Include="Errors\NotFoundError.cs" />
+    <Compile Include="HandlerResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Shop.BuisnessLayer\Shop.BuisnessLayer.csproj">
-      <Project>{98EDD9D0-4AA8-4287-BA34-01558E72E6A5}</Project>
-      <Name>Shop.BuisnessLayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
