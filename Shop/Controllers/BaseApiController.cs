@@ -9,7 +9,7 @@ namespace Shop
     using System.Linq;
     using System.Net;
     using System.Web.Http;
-    using EnableCorsAttribute = Cors.ConfigProfiles.EnableCorsAttribute;
+    
     using Shop.Common.Errors;
     using Shop.Common;
 
@@ -18,7 +18,7 @@ namespace Shop
     /// <summary>
     /// The base api controller.
     /// </summary>
-    [EnableCors("DefaultProfile")]
+   
     public class BaseApiController : ApiController
     {
         /// <summary>

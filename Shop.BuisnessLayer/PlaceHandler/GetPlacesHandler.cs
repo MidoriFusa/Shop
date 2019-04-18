@@ -1,4 +1,4 @@
-﻿using DataLayer;
+﻿using Shop.DataLayer;
 using Shop.BuisnessLayer.Dtos;
 using Shop.Common;
 using Shop.Models.Database;
@@ -17,7 +17,7 @@ namespace Shop.BuisnessLayer.PlaceHandler
 
         public override HandlerResult<List<PlaceDto>> Execute()
         {
-            var result = this.UnitOfWork.Places.GetAll().Select(e => new PlaceDto { Id = e.PlaceId, Name = e.PlaceName, products = e.products }).ToList();
+            var result = this.UnitOfWork.Places.GetAll().Select(e => new PlaceDto { Id = e.Id, Name = e.Name }).ToList();
             return new HandlerResult<List<PlaceDto>>(result);
         }
     }

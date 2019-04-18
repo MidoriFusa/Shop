@@ -1,7 +1,8 @@
-﻿using DataLayer;
+﻿
 using Shop.BuisnessLayer.Dtos;
 using Shop.Common;
 using Shop.Common.Errors;
+using Shop.DataLayer;
 using System.Linq;
 
 namespace Shop.BuisnessLayer.PlaceHandler
@@ -13,7 +14,7 @@ namespace Shop.BuisnessLayer.PlaceHandler
 
         public override HandlerResult<PlaceDto> Execute(int command)
         {
-            var result = this.UnitOfWork.Places.GetAll().Where(e => e.PlaceId == command).Select(e => new PlaceDto { Id = e.PlaceId, Name = e.PlaceName, products = e.products }).FirstOrDefault();
+            var result = this.UnitOfWork.Places.GetAll().Where(e => e.Id == command).Select(e => new PlaceDto { Id = e.Id, Name = e.Name }).FirstOrDefault();
 
 
             if (result == null)

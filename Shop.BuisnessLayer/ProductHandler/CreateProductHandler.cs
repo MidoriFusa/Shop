@@ -1,4 +1,4 @@
-﻿using DataLayer;
+﻿using Shop.DataLayer;
 using Shop.BuisnessLayer.Commands;
 using Shop.BuisnessLayer.Dtos;
 using Shop.Common;
@@ -32,11 +32,13 @@ namespace Shop.BuisnessLayer.ProductHandler
                 return new HandlerResult<ProductDto>(new NotFoundError($"Not found region with id {command.Id}"));
             }
 
-            entity.ProductName = command.ProductName;
-            entity.places = command.places;
+            entity.Name = command.Name;
             entity.Length = command.Length;
             entity.Height = command.Height;
             entity.Width = command.Width;
+            entity.BuyPrice = command.BuyPrice;
+            entity.SellPrice = command.SellPrice;
+            
             if (command.Id.GetValueOrDefault() == 0)
             {
                 this.UnitOfWork.prods.Create(entity);
@@ -47,7 +49,7 @@ namespace Shop.BuisnessLayer.ProductHandler
             }
             this.UnitOfWork.Save();
             var handler = new GetProductByIdHandler(this.UnitOfWork);
-            var result = handler.Execute(entity.ProductId);
+            var result = handler.Execute(entity.Id);
             return result;
 
         }

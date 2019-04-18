@@ -6,7 +6,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 //using System.Web.Mvc;
 using AutoMapper;
-using DataLayer;
+using Shop.DataLayer;
 using Shop.BuisnessLayer;
 using Shop.BuisnessLayer.Commands;
 using Shop.BuisnessLayer.Dtos;
@@ -38,13 +38,13 @@ namespace Shop.Controllers
 
         [Route("{id}")]
         [HttpDelete]
-        [ResponseType(typeof(Product))]
+        [ResponseType(typeof(void))]
         [ResponseType(typeof(NotFoundError))]
         public IHttpActionResult DeletePRoduct(int id) => this.RunHandler<DeleteProductHandler, int, int>(id);
 
 
 
-        [Route("{id}")]
+        [Route("")]
         [HttpPut, HttpPost]
         [ResponseType(typeof (ProductDto))]
         [ResponseType(typeof(NotFoundError))]

@@ -12,20 +12,16 @@ namespace Shop.BuisnessLayer.Commands
     {
         public int? Id { get; set; }
 
-        public string ProductName { get; set; }
+        public string Name { get; set; }
         
         public double Height { get; set; }
         
         public double Width { get; set; }
        
         public double Length { get; set; }
+        public decimal BuyPrice { get; set; }
+        public decimal SellPrice { get; set; }
 
-        public ICollection<Place> places { get; set; }
-
-        public CreateProductCommand()
-        {
-            places = new List<Place>();
-        }
 
 
     }

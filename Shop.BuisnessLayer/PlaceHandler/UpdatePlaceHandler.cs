@@ -1,4 +1,4 @@
-﻿using DataLayer;
+﻿using Shop.DataLayer;
 using Shop.BuisnessLayer.Commands;
 using Shop.BuisnessLayer.Dtos;
 using Shop.Common;
@@ -22,25 +22,25 @@ namespace Shop.BuisnessLayer.PlaceHandler
         {
             Place entity;
 
-            if (command.PlaceId.GetValueOrDefault()==0)
+            if (command.Id.GetValueOrDefault()==0)
             {
                 entity = new Place();
             }
             else
             {
-                entity = this.UnitOfWork.Places.GetByid(command.PlaceId);
+                entity = this.UnitOfWork.Places.GetByid(command.Id);
             }
 
 
             if (entity == null)
             {
-                return new HandlerResult<PlaceDto>(new NotFoundError($"Not found region with id {command.PlaceId}"));
+                return new HandlerResult<PlaceDto>(new NotFoundError($"Not found Place with id {command.Id}"));
             }
 
-            entity.PlaceName = command.PlaceName;
-            entity.products = entity.products;
+            entity.Name = command.Name;
+            
 
-            if (command.PlaceId.GetValueOrDefault() == 0)
+            if (command.Id.GetValueOrDefault() == 0)
             {
                 this.UnitOfWork.Places.Create(entity);
             }
@@ -50,7 +50,7 @@ namespace Shop.BuisnessLayer.PlaceHandler
             }
             this.UnitOfWork.Save();
             var handler = new GetPlaceByIdHandler(this.UnitOfWork);
-            var result = handler.Execute(entity.PlaceId);
+            var result = handler.Execute(entity.Id);
             return result;
 
 

@@ -1,4 +1,4 @@
-﻿using DataLayer;
+﻿using Shop.DataLayer;
 using Shop.BuisnessLayer;
 using Shop.BuisnessLayer.Dtos;
 using Shop.BuisnessLayer.PlaceHandler;
@@ -21,7 +21,7 @@ namespace Shop.Controllers
     {
 
 
-        [Route(" ")]
+        [Route("")]
         [HttpGet]
         [ResponseType(typeof(List<PlaceDto>))]
         public IHttpActionResult GetPlaceList() => this.RunHandler<GetPlacesHandler, List<PlaceDto>>();
@@ -36,14 +36,14 @@ namespace Shop.Controllers
 
         [Route("{id}")]
         [HttpDelete]
-        [ResponseType(typeof(Place))]
+        [ResponseType(typeof(void))]
         [ResponseType(typeof(NotFoundError))]
         public IHttpActionResult DeletePlace(int id) => this.RunHandler<DeletePlaceHandler, int, int>(id);
 
 
-        [Route("{id}")]
+        [Route("")]
         [HttpPut, HttpPost]
-        [ResponseType(typeof(Place))]
+        [ResponseType(typeof(PlaceDto))]
         [ResponseType(typeof(NotFoundError))]
         public IHttpActionResult UpdatePlace(PlaceUpdateDto model)
         {

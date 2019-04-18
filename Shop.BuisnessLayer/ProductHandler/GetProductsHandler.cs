@@ -1,4 +1,4 @@
-﻿using DataLayer;
+﻿using Shop.DataLayer;
 using Shop.BuisnessLayer.Dtos;
 using Shop.Common;
 using Shop.Models.Database;
@@ -21,7 +21,7 @@ namespace Shop.BuisnessLayer.ProductHandler
 
         public override HandlerResult<List<ProductDto>> Execute()
         {
-            var result = this.UnitOfWork.prods.GetAll().Select(e => new ProductDto { Id = e.ProductId, Height = e.Height, Length = e.Length, Name = e.ProductName, Width = e.Width, placeDtos = e.places }).ToList();
+            var result = this.UnitOfWork.prods.GetAll().Select(e => new ProductDto { Id = e.Id, Height = e.Height, Length = e.Length, Name =e.Name, Width = e.Width , BuyPrice=e.BuyPrice,SellPrice=e.SellPrice}).ToList();
 
             return new HandlerResult<List<ProductDto>>(result);
         }

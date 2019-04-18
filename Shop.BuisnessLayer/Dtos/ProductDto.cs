@@ -15,13 +15,9 @@ namespace Shop.BuisnessLayer.Dtos
         public double Width { get; set; }
         
         public double Length { get; set; }
+        public decimal BuyPrice { get; set; }
+        public decimal SellPrice { get; set; }
 
-        public ICollection<Place> placeDtos { get; set; }
-
-        public ProductDto()
-        {
-            placeDtos = new List<Place>();
-        }
 
     }
 }

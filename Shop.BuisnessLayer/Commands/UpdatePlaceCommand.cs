@@ -10,18 +10,12 @@ namespace Shop.BuisnessLayer.Commands
 {
     public class UpdatePlaceCommand
     {
-        public int? PlaceId { get; set; }
+        public int? Id { get; set; }
 
        
-        public string PlaceName { get; set; }
+        public string Name { get; set; }
 
-        public ICollection<Product> products { get; set; }
-
-        public UpdatePlaceCommand()
-        {
-            products = new List<Product>();
-        }
-
+       
 
     }
 }

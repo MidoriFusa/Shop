@@ -1,6 +1,6 @@
-﻿using DataLayer;
-using Shop.Common;
+﻿using Shop.Common;
 using Shop.Common.Errors;
+using Shop.DataLayer;
 
 namespace Shop.BuisnessLayer.PlaceHandler
 {

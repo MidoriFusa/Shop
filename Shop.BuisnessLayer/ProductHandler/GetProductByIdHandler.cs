@@ -1,4 +1,4 @@
-﻿using DataLayer;
+﻿using Shop.DataLayer;
 using Shop.BuisnessLayer.Dtos;
 using Shop.Common;
 using Shop.Common.Errors;
@@ -19,7 +19,7 @@ namespace Shop.BuisnessLayer.ProductHandler
         public override HandlerResult<ProductDto> Execute(int command)
         {
 
-            var result = this.UnitOfWork.prods.GetAll().Where(e=>e.ProductId==command).Select(e=>new ProductDto { Id=e.ProductId, Height=e.Height, Name=e.ProductName,Length=e.Length, Width=e.Width, placeDtos=e.places}).SingleOrDefault();
+            var result = this.UnitOfWork.prods.GetAll().Where(e=>e.Id==command).Select(e=>new ProductDto { Id=e.Id, Height=e.Height, Name=e.Name,Length=e.Length, Width=e.Width, BuyPrice=e.BuyPrice,SellPrice=e.SellPrice}).SingleOrDefault();
 
 
             if (result== null)

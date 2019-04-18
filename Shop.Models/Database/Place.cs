@@ -10,17 +10,16 @@ namespace Shop.Models.Database
     public class Place
     {
 
-        public int PlaceId { get; set; }
+        public int Id { get; set; }
 
-        [Required]
-        [StringLength(4,MinimumLength =2)]
-        public string PlaceName { get; set; }
+     
+        public string Name { get; set; }
       
-        public ICollection<Product> products { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
 
         public Place()
         {
-            products = new List<Product>();
+            Products = new HashSet<Product>();
         }
 
 

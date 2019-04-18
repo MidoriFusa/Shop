@@ -10,12 +10,7 @@ namespace Shop.BuisnessLayer.Dtos
    public class PlaceDto:BaseDto
     {
 
-        public ICollection<Product> products { get; set; }
-
-        public PlaceDto()
-        {
-            products = new List<Product>();
-        }
+       
 
 
     }

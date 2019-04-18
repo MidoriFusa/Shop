@@ -11,22 +11,17 @@ namespace Shop.BuisnessLayer.Dtos
     {
 
         public int Id { get; set; }
-        [Required]
-        [StringLength(15, MinimumLength = 6)]
-        public string ProductName { get; set; }
+      
+        public string Name { get; set; }
         [Required]
         public double Height { get; set; }
         [Required]
         public double Width { get; set; }
         [Required]
         public double Length { get; set; }
+        public double BuyPrice { get; set; }
+        public double SellPrice { get; set; }
 
-        public ICollection<PlaceDto> places { get; set; }
-
-        public CreateProductDto()
-        {
-            places = new List<PlaceDto>();
-        }
 
 
     }

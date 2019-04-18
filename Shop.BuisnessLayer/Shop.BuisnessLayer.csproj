@@ -37,6 +37,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -66,15 +72,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\Commands\ChangePasswordCommand.cs" />
+    <Compile Include="Accounts\Commands\RegisterCommand.cs" />
+    <Compile Include="Accounts\Handlers\AuthorizeHandler.cs" />
+    <Compile Include="Accounts\Handlers\ChangePasswordHandler.cs" />
+    <Compile Include="Accounts\Handlers\GetUserInfoHandler.cs" />
+    <Compile Include="Accounts\Handlers\RegisterHandler.cs" />
+    <Compile Include="Accounts\Handlers\ResetPasswordHandler.cs" />
+    <Compile Include="Accounts\Responses\AccessTokenDto.cs" />
+    <Compile Include="Accounts\Responses\UserInfoDto.cs" />
     <Compile Include="BaseDto.cs" />
     <Compile Include="BaseHandler.cs" />
     <Compile Include="BaseCommandHandler.cs" />
+    <Compile Include="Commands\CreateOderCommand.cs" />
+    <Compile Include="Commands\CreateOrderPunctCommand.cs" />
+    <Compile Include="Commands\CreatePartCommand.cs" />
+    <Compile Include="Commands\CreatePartPunctCommand.cs" />
     <Compile Include="Commands\CreateProductCommand.cs" />
     <Compile Include="Commands\UpdatePlaceCommand.cs" />
+    <Compile Include="Dtos\CreateOrderDto.cs" />
+    <Compile Include="Dtos\CreateOrderPunctDto.cs" />
+    <Compile Include="Dtos\CreatePartDto.cs" />
+    <Compile Include="Dtos\CreatePartPunctDto.cs" />
+    <Compile Include="Dtos\GetOrderDto.cs" />
+    <Compile Include="Dtos\GetOrdersDto.cs" />
+    <Compile Include="Dtos\OrderPunctDto.cs" />
+    <Compile Include="Dtos\PartDto.cs" />
+    <Compile Include="Dtos\PartPunctDto.cs" />
     <Compile Include="Dtos\PlaceUpdateDto.cs" />
     <Compile Include="Dtos\CreateProductDto.cs" />
     <Compile Include="Dtos\PlaceDto.cs" />
     <Compile Include="Dtos\ProductDto.cs" />
+    <Compile Include="OrderHanlers\CreateOrderHandler.cs" />
+    <Compile Include="OrderHanlers\DeleteOrderHandler.cs" />
+    <Compile Include="OrderHanlers\GetOrderByIdHandler.cs" />
+    <Compile Include="OrderHanlers\GetOrdersHandler.cs" />
     <Compile Include="PlaceHandler\DeletePlaceHandler.cs" />
     <Compile Include="PlaceHandler\GetPlaceById.cs" />
     <Compile Include="PlaceHandler\GetPlacesHandler.cs" />
@@ -86,16 +118,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataLayer\Shop.Datalayer.csproj">
-      <Project>{5C427C3D-AAF1-4A62-88F1-72D4489CC977}</Project>
-      <Name>Shop.Datalayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Shop.Common\Shop.Common.csproj">
       <Project>{cd54758c-bcf4-4e2d-89f7-8b9dfb1b5239}</Project>
       <Name>Shop.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shop.Datalayer\Shop.Datalayer.csproj">
+      <Project>{9383D6FF-B520-4615-8BE5-695EBB5018CC}</Project>
+      <Name>Shop.Datalayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shop.Identity\Shop.Identity.csproj">
+      <Project>{8D022B26-6328-4FD3-8979-3B45316DF394}</Project>
+      <Name>Shop.Identity</Name>
     </ProjectReference>
     <ProjectReference Include="..\Shop.Models\Shop.Models.csproj">
       <Project>{F931B5F5-4062-4865-AA29-177EAE8E8951}</Project>

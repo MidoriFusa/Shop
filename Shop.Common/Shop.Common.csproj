@@ -48,13 +48,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="Errors\AddLoginError.cs" />
+    <Compile Include="Errors\AddPasswordError.cs" />
+    <Compile Include="Errors\AddUserToRolesError.cs" />
     <Compile Include="Errors\ArgumentError.cs" />
     <Compile Include="Errors\ArgumentNullError.cs" />
     <Compile Include="Errors\BaseError.cs" />
+    <Compile Include="Errors\ChangePasswordError.cs" />
+    <Compile Include="Errors\CreateUserError.cs" />
     <Compile Include="Errors\ExceptionError.cs" />
     <Compile Include="Errors\IError.cs" />
     <Compile Include="Errors\InternalServerError.cs" />
+    <Compile Include="Errors\InvalidPasswordError.cs" />
+    <Compile Include="Errors\InvalidPasswordResetTokenError.cs" />
     <Compile Include="Errors\NotFoundError.cs" />
+    <Compile Include="Errors\RemoveLoginError.cs" />
+    <Compile Include="Errors\RemoveUserFromRolesError.cs" />
+    <Compile Include="Errors\UpdateUserError.cs" />
+    <Compile Include="Errors\UserAlreadyExistsError.cs" />
+    <Compile Include="Errors\UserNotFoundError.cs" />
     <Compile Include="HandlerResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
